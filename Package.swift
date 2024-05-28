@@ -16,7 +16,7 @@ let package = Package(
      targets: [
         .binaryTarget(
             name: "IronSource",
-            url: "https://github.com/ironsource-mobile/iOS-sdk/tree/master/8.1.0/IronSource8.1.0.zip",
+            url: "https://github.com/ironsource-mobile/iOS-sdk/raw/master/8.1.0/IronSource8.1.0.zip",
             checksum: "2af1acc57245a9e253f6fa61981cc3b48882c7767b9951e4fb70c4580ad509c9"
         )
     ]
