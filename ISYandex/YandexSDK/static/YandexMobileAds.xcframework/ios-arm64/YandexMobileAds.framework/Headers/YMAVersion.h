@@ -1,0 +1,10 @@
+#ifndef YMA_VERSION_H
+#define YMA_VERSION_H
+
+#define YMA_VERSION_MAJOR 7
+#define YMA_VERSION_MINOR 0
+#define YMA_VERSION_PATCH 1
+
+#define YMA_BUILD_NUMBER 88071
+
+#endif // YMA_VERSION_H

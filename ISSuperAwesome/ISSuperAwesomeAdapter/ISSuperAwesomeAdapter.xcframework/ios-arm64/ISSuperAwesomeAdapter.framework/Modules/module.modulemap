@@ -1,0 +1,6 @@
+framework module ISSuperAwesomeAdapter {
+  umbrella header "ISSuperAwesomeAdapter.h"
+  export *
+
+  module * { export * }
+}

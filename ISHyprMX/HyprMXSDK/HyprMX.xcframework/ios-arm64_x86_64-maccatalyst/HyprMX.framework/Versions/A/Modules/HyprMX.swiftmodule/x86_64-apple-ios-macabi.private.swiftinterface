@@ -1,0 +1,54 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.8.1 (swiftlang-5.8.0.124.5 clang-1403.0.22.11.100)
+// swift-module-flags: -target x86_64-apple-ios13.1-macabi -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name HyprMX
+// swift-module-flags-ignorable: -enable-bare-slash-regex
+import AVKit
+import AdSupport
+import AppTrackingTransparency
+import AudioToolbox
+import Combine
+import Foundation
+@_exported import HyprMX
+import HyprMX_Private
+import JavaScriptCore
+import Network
+import SafariServices
+import StoreKit
+import Swift
+import UIKit
+import _Concurrency
+import _StringProcessing
+@objc public protocol HyprMXBannerDelegate {
+  @objc optional func adDidLoad(_ bannerView: HyprMXBannerView)
+  @objc optional func adFailed(toLoad bannerView: HyprMXBannerView, error: Error)
+  @objc optional func adDidOpen(_ bannerView: HyprMXBannerView)
+  @objc optional func adDidClose(_ bannerView: HyprMXBannerView)
+  @objc optional func adWasClicked(_ bannerView: HyprMXBannerView)
+  @objc optional func adWillLeaveApplication(_ bannerView: HyprMXBannerView)
+}
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) public class HyprMXBannerView : UIView {
+  @objc @_Concurrency.MainActor(unsafe) public var placementName: String? {
+    @objc get
+    @objc set
+  }
+  @objc @_Concurrency.MainActor(unsafe) public var adSize: CGSize {
+    @objc get
+    @objc set
+  }
+  @objc @_Concurrency.MainActor(unsafe) weak public var placementDelegate: HyprMXBannerDelegate?
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public var isHidden: Bool {
+    @objc get
+    @objc set
+  }
+  @objc @_Concurrency.MainActor(unsafe) convenience public init(placementName: String, adSize: CGSize)
+  @objc @_Concurrency.MainActor(unsafe) public func adTapped()
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CGRect)
+  @objc deinit
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func didMoveToSuperview()
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func layoutSubviews()
+  @objc @_Concurrency.MainActor(unsafe) public func loadAd()
+}
+extension HyprMXBannerView : UIGestureRecognizerDelegate {
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool
+}

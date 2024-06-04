@@ -1,0 +1,440 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.7.2 (swiftlang-5.7.2.135.5 clang-1400.0.29.51)
+// swift-module-flags: -target x86_64-apple-ios12.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name MolocoSDK
+// swift-module-flags-ignorable: -enable-bare-slash-regex
+import AVFoundation
+import AVKit
+import AdSupport
+import AppTrackingTransparency
+import Combine
+import CoreGraphics
+import CoreLocation
+import CoreTelephony
+import CryptoKit
+import Foundation
+import Network
+import SafariServices
+import StoreKit
+import Swift
+import SwiftUI
+import SystemConfiguration
+import UIKit
+import WebKit
+import _AVKit_SwiftUI
+import _Concurrency
+import _StringProcessing
+import os.log
+import os
+import zlib
+@objc public protocol MolocoFullscreenAd : MolocoSDK.MolocoAd {
+  @_Concurrency.MainActor @objc func show(from viewController: UIKit.UIViewController)
+  @_Concurrency.MainActor @objc func show(from viewController: UIKit.UIViewController, muted: Swift.Bool)
+  @objc var fullscreenViewController: UIKit.UIViewController? { get }
+}
+@objc public protocol MolocoInterstitial : MolocoSDK.MolocoFullscreenAd {
+  @objc var interstitialDelegate: MolocoSDK.MolocoInterstitialDelegate? { get set }
+}
+@objc public protocol MolocoRewardedInterstitial : MolocoSDK.MolocoFullscreenAd {
+  @objc var rewardedDelegate: MolocoSDK.MolocoRewardedDelegate? { get set }
+}
+@objc public enum MolocoFullscreenAdType : Swift.Int {
+  case interstitial = 1
+  case rewarded
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@_hasMissingDesignatedInitializers @available(iOS 13.0, *)
+@_Concurrency.MainActor public class NativeRendererViewModel : Combine.ObservableObject {
+  public enum AssetType {
+    case appIcon
+    case mainImage
+    case title
+    case sponsored
+    case video
+    case rating
+    case cta
+    public static func == (a: MolocoSDK.NativeRendererViewModel.AssetType, b: MolocoSDK.NativeRendererViewModel.AssetType) -> Swift.Bool
+    public func hash(into hasher: inout Swift.Hasher)
+    public var hashValue: Swift.Int {
+      get
+    }
+  }
+  @Combine.Published @_projectedValueProperty($appIcon) @_Concurrency.MainActor @objc public var appIcon: UIKit.UIImage? {
+    @objc get
+  }
+  @_Concurrency.MainActor public var $appIcon: Combine.Published<UIKit.UIImage?>.Publisher {
+    get
+  }
+  @Combine.Published @_projectedValueProperty($mainImage) @_Concurrency.MainActor @objc public var mainImage: UIKit.UIImage? {
+    @objc get
+  }
+  @_Concurrency.MainActor public var $mainImage: Combine.Published<UIKit.UIImage?>.Publisher {
+    get
+  }
+  @Combine.Published @_projectedValueProperty($title) @_Concurrency.MainActor @objc public var title: Swift.String {
+    @objc get
+  }
+  @_Concurrency.MainActor public var $title: Combine.Published<Swift.String>.Publisher {
+    get
+  }
+  @Combine.Published @_projectedValueProperty($description) @_Concurrency.MainActor @objc public var description: Swift.String {
+    @objc get
+  }
+  @_Concurrency.MainActor public var $description: Combine.Published<Swift.String>.Publisher {
+    get
+  }
+  @Combine.Published @_projectedValueProperty($sponsorText) @_Concurrency.MainActor @objc public var sponsorText: Swift.String {
+    @objc get
+  }
+  @_Concurrency.MainActor public var $sponsorText: Combine.Published<Swift.String>.Publisher {
+    get
+  }
+  @Combine.Published @_projectedValueProperty($ctaTitle) @_Concurrency.MainActor @objc public var ctaTitle: Swift.String {
+    @objc get
+  }
+  @_Concurrency.MainActor public var $ctaTitle: Combine.Published<Swift.String>.Publisher {
+    get
+  }
+  @Combine.Published @_projectedValueProperty($rating) @_Concurrency.MainActor @objc public var rating: Swift.Double {
+    @objc get
+  }
+  @_Concurrency.MainActor public var $rating: Combine.Published<Swift.Double>.Publisher {
+    get
+  }
+  @Combine.Published @_projectedValueProperty($playing) @_Concurrency.MainActor public var playing: Swift.Bool {
+    get
+  }
+  @_Concurrency.MainActor public var $playing: Combine.Published<Swift.Bool>.Publisher {
+    get
+  }
+  @Combine.Published @_projectedValueProperty($videoFinished) @_Concurrency.MainActor public var videoFinished: Swift.Bool {
+    get
+  }
+  @_Concurrency.MainActor public var $videoFinished: Combine.Published<Swift.Bool>.Publisher {
+    get
+  }
+  @_Concurrency.MainActor @objc public var videoView: UIKit.UIView? {
+    @objc get
+    @objc set
+  }
+  @_Concurrency.MainActor public var cta: (MolocoSDK.NativeRendererViewModel.AssetType) -> Swift.Void {
+    get
+  }
+  @_Concurrency.MainActor public var privacy: () -> Swift.Void {
+    get
+  }
+  public typealias ObjectWillChangePublisher = Combine.ObservableObjectPublisher
+  @objc deinit
+}
+@objc public enum AdNativeType : Swift.Int {
+  case unknownType
+  case logo
+  case image
+  case video
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public enum MolocoNativeAdError : Swift.Error {
+  case placementNeedsCustomLayout
+  public static func == (a: MolocoSDK.MolocoNativeAdError, b: MolocoSDK.MolocoNativeAdError) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+extension MolocoSDK.MolocoNativeAdError : Foundation.LocalizedError {
+  public var errorDescription: Swift.String? {
+    get
+  }
+}
+@objc public protocol MolocoNativeAdAssests {
+  @objc var appIcon: UIKit.UIImage? { get }
+  @objc var mainImage: UIKit.UIImage? { get }
+  @objc var title: Swift.String { get }
+  @objc var description: Swift.String { get }
+  @objc var sponsorText: Swift.String { get }
+  @objc var ctaTitle: Swift.String { get }
+  @objc var rating: Swift.Double { get }
+  @objc var videoView: UIKit.UIView? { get }
+}
+@objc public protocol MolocoNativeAd : MolocoSDK.MolocoAd {
+  @objc var adView: UIKit.UIView { get }
+  @objc var delegate: MolocoSDK.MolocoNativeAdDelegate? { get set }
+  @objc var assets: MolocoSDK.MolocoNativeAdAssests? { get }
+  @objc var type: MolocoSDK.AdNativeType { get }
+  @objc func show(in: UIKit.UIViewController)
+  @objc func handleClick()
+}
+@_hasMissingDesignatedInitializers @available(iOS 13.0, *)
+@objc @_Concurrency.MainActor(unsafe) public class MolocoNativeAdImplementation : UIKit.UIView, MolocoSDK.MolocoNativeAd {
+  @_Concurrency.MainActor(unsafe) @objc public var isReady: Swift.Bool {
+    get
+  }
+  @_Concurrency.MainActor(unsafe) @objc public var assets: MolocoSDK.MolocoNativeAdAssests? {
+    get
+  }
+  @_Concurrency.MainActor(unsafe) @objc weak public var delegate: MolocoSDK.MolocoNativeAdDelegate?
+  @_Concurrency.MainActor(unsafe) @objc public var adView: UIKit.UIView {
+    @objc get
+  }
+  @_Concurrency.MainActor(unsafe) @objc public var type: MolocoSDK.AdNativeType {
+    @objc get
+  }
+  @_Concurrency.MainActor @objc public func load(bidResponse: Swift.String)
+  @_Concurrency.MainActor @objc public func show(in viewController: UIKit.UIViewController)
+  @_Concurrency.MainActor(unsafe) @objc public func destroy()
+  @objc deinit
+}
+@available(iOS 13.0, *)
+extension MolocoSDK.NativeRendererViewModel : MolocoSDK.MolocoNativeAdAssests {
+}
+@available(iOS 13.0, *)
+extension MolocoSDK.MolocoNativeAdImplementation {
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func handleClick()
+}
+@available(iOS 13.0, *)
+extension SwiftUI.Color : Swift.Decodable {
+  public init(from decoder: Swift.Decoder) throws
+}
+@available(iOS 13.0, *)
+extension SwiftUI.HorizontalAlignment : Swift.Decodable {
+  public init(from decoder: Swift.Decoder) throws
+}
+@available(iOS 13.0, *)
+extension SwiftUI.VerticalAlignment : Swift.Decodable {
+  public init(from decoder: Swift.Decoder) throws
+}
+@available(iOS 13.0, *)
+@objc public enum MolocoBannerType : Swift.Int {
+  case regular = 0
+  case mrec = 1
+  public var size: CoreFoundation.CGSize {
+    get
+  }
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc @_hasMissingDesignatedInitializers @available(iOS 13.0, *)
+@_Concurrency.MainActor(unsafe) public class MolocoBannerAdView : UIKit.UIView, MolocoSDK.MolocoAd {
+  @objc @_Concurrency.MainActor(unsafe) weak public var delegate: MolocoSDK.MolocoBannerDelegate?
+  @_Concurrency.MainActor(unsafe) @objc public var isReady: Swift.Bool {
+    get
+  }
+  @objc deinit
+  @_Concurrency.MainActor @objc public func load(bidResponse: Swift.String)
+  @_Concurrency.MainActor(unsafe) @objc public func destroy()
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func didMoveToWindow()
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func didMoveToSuperview()
+}
+@objc public enum MolocoError : Swift.Int, Swift.Error {
+  case unknown = -1
+  case sdkInit = 100
+  case sdkInvalidConfiguration = 1002
+  case adLoadFailed = 2000
+  case adLoadFailedSDKNotInit = 2001
+  case adLoadTimeoutError = 2003
+  case adShowFailed = 300
+  case adShowFailedNotLoaded = 3001
+  case adShowFailedAlreadyDisplaying = 3002
+  case adBidParseFailed = 4000
+  case adSignalCollectionFailed = 5000
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public static var _nsErrorDomain: Swift.String {
+    get
+  }
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+extension MolocoSDK.MolocoError : Foundation.LocalizedError {
+  public var errorDescription: Swift.String? {
+    get
+  }
+}
+#if compiler(>=5.3) && $AsyncAwait && $Sendable
+@available(iOS 13.0, *)
+public func withTimeout<R>(seconds: Foundation.TimeInterval, operation: @escaping @Sendable () async throws -> R) async throws -> R
+#endif
+public enum MolocoBidTokenError : Swift.Error {
+  case from(originalError: Swift.Error)
+  case requestError(response: Foundation.HTTPURLResponse)
+  case deserializationFailed
+}
+@objc public class MolocoInitParams : ObjectiveC.NSObject {
+  final public let appKey: Swift.String
+  final public let mediator: MolocoSDK.MolocoMediationInfo
+  @objc public init(appKey: Swift.String, mediator: MolocoSDK.MolocoMediationInfo = .none)
+  @objc override dynamic public var description: Swift.String {
+    @objc get
+  }
+  @objc deinit
+}
+@objc public enum MolocoMediationInfo : Swift.Int {
+  case max
+  case x3mads
+  case levelPlay
+  case none
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public typealias HTTPParameters = [Swift.String : Any]
+public typealias HTTPHeaders = [Swift.String : Swift.String]
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers public class MolocoPrivacySettings : ObjectiveC.NSObject {
+  @objc public static var hasUserConsent: Swift.Bool {
+    @objc get
+    @objc set
+  }
+  @objc public static var isAgeRestrictedUser: Swift.Bool {
+    @objc get
+    @objc set
+  }
+  @objc public static var isDoNotSell: Swift.Bool {
+    @objc get
+    @objc set
+  }
+  @objc public static var isUserConsentSet: Swift.Bool {
+    get
+  }
+  @objc public static var isAgeRestrictedUserSet: Swift.Bool {
+    get
+  }
+  @objc public static var isDoNotSellSet: Swift.Bool {
+    get
+  }
+  @objc public static var usPrivacyString: Swift.String {
+    @objc get
+  }
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers @objc public class MolocoInitState : ObjectiveC.NSObject {
+  @objc public var isInitialized: Swift.Bool {
+    get
+  }
+  @objc public var mediationInfo: MolocoSDK.MolocoMediationInfo {
+    get
+  }
+  @objc deinit
+}
+infix operator <<< : BitwiseShiftPrecedence
+@objc public protocol Destroyable {
+  @objc func destroy()
+}
+@objc public protocol Readiable {
+  @objc var isReady: Swift.Bool { get }
+}
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers public class Moloco : ObjectiveC.NSObject {
+  public enum MolocoAdType {
+    case interstitial
+    case rewarded
+    case banner
+    case mrec
+    case native
+    public static func == (a: MolocoSDK.Moloco.MolocoAdType, b: MolocoSDK.Moloco.MolocoAdType) -> Swift.Bool
+    public func hash(into hasher: inout Swift.Hasher)
+    public var hashValue: Swift.Int {
+      get
+    }
+  }
+  public struct AdapterSettings {
+    public let region: Swift.String
+    public let auctionApiUrl: Swift.String
+    public let publisherID: Swift.String
+    public let platformID: Swift.String
+    public let appID: Swift.String
+  }
+  @objc public static let shared: MolocoSDK.Moloco
+  @objc public var state: MolocoSDK.MolocoInitState {
+    get
+  }
+  @available(iOS 13.0, *)
+  public var initializationPublisher: Combine.AnyPublisher<Swift.Bool, Swift.Never>? {
+    get
+  }
+  @objc public var sdkVersion: Swift.String {
+    @objc get
+  }
+  public var adapterSettings: MolocoSDK.Moloco.AdapterSettings? {
+    get
+  }
+  public func getAdUnitName(adUnitID: Swift.String) -> Swift.String?
+  public func getBidFloor(adUnitID: Swift.String) -> Swift.Float?
+  public func getParameter(_ name: Swift.String) -> Any?
+  @objc public func getBidToken(completion: @escaping (_ bidToken: Swift.String) -> Swift.Void)
+  @objc deinit
+}
+@available(iOS 13.0, *)
+extension MolocoSDK.Moloco {
+  @available(iOS 13.0, *)
+  @objc dynamic public func initialize(initParams: MolocoSDK.MolocoInitParams, completion: ((Swift.Bool, Swift.Error?) -> Swift.Void)?)
+}
+@available(iOS 13.0, *)
+extension MolocoSDK.Moloco {
+  @_Concurrency.MainActor @objc dynamic public func createMREC(for adUnit: Swift.String, viewController: UIKit.UIViewController, delegate: MolocoSDK.MolocoBannerDelegate?) -> MolocoSDK.MolocoBannerAdView?
+  @_Concurrency.MainActor @objc dynamic public func createInterstitial(for adUnit: Swift.String, delegate: MolocoSDK.MolocoInterstitialDelegate?) -> MolocoSDK.MolocoInterstitial?
+  @_Concurrency.MainActor @objc dynamic public func createRewarded(for adUnit: Swift.String, delegate: MolocoSDK.MolocoRewardedDelegate?) -> MolocoSDK.MolocoRewardedInterstitial?
+  @_Concurrency.MainActor @objc dynamic public func createBanner(for adUnit: Swift.String, viewController: UIKit.UIViewController, delegate: MolocoSDK.MolocoBannerDelegate?) -> MolocoSDK.MolocoBannerAdView?
+  @_Concurrency.MainActor @objc dynamic public func createNativeAd(for adUnit: Swift.String, delegate: MolocoSDK.MolocoNativeAdDelegate?) -> MolocoSDK.MolocoNativeAd?
+}
+@objc public protocol MolocoAd : MolocoSDK.Destroyable, MolocoSDK.Readiable {
+  @_Concurrency.MainActor @objc func load(bidResponse: Swift.String)
+}
+@objc public protocol BaseAdDelegate {
+  @objc func didLoad(ad: MolocoSDK.MolocoAd)
+  @objc func failToLoad(ad: MolocoSDK.MolocoAd, with error: Swift.Error?)
+  @objc func didShow(ad: MolocoSDK.MolocoAd)
+  @objc func failToShow(ad: MolocoSDK.MolocoAd, with error: Swift.Error?)
+  @objc func didHide(ad: MolocoSDK.MolocoAd)
+  @objc func didClick(on ad: MolocoSDK.MolocoAd)
+}
+@objc public protocol MolocoInterstitialDelegate : MolocoSDK.BaseAdDelegate {
+}
+@objc public protocol MolocoRewardedDelegate : MolocoSDK.BaseAdDelegate {
+  @objc func userRewarded(ad: MolocoSDK.MolocoAd)
+  @objc func rewardedVideoStarted(ad: MolocoSDK.MolocoAd)
+  @objc func rewardedVideoCompleted(ad: MolocoSDK.MolocoAd)
+}
+@objc public protocol MolocoBannerDelegate : MolocoSDK.BaseAdDelegate {
+}
+@objc public protocol MolocoNativeAdDelegate : MolocoSDK.BaseAdDelegate {
+}
+extension MolocoSDK.MolocoFullscreenAdType : Swift.Equatable {}
+extension MolocoSDK.MolocoFullscreenAdType : Swift.Hashable {}
+extension MolocoSDK.MolocoFullscreenAdType : Swift.RawRepresentable {}
+@available(iOS 13.0, *)
+extension MolocoSDK.NativeRendererViewModel : Swift.Sendable {}
+@available(iOS 13.0, *)
+extension MolocoSDK.NativeRendererViewModel.AssetType : Swift.Equatable {}
+@available(iOS 13.0, *)
+extension MolocoSDK.NativeRendererViewModel.AssetType : Swift.Hashable {}
+extension MolocoSDK.AdNativeType : Swift.Equatable {}
+extension MolocoSDK.AdNativeType : Swift.Hashable {}
+extension MolocoSDK.AdNativeType : Swift.RawRepresentable {}
+extension MolocoSDK.MolocoNativeAdError : Swift.Equatable {}
+extension MolocoSDK.MolocoNativeAdError : Swift.Hashable {}
+@available(iOS 13.0, *)
+extension MolocoSDK.MolocoBannerType : Swift.Equatable {}
+@available(iOS 13.0, *)
+extension MolocoSDK.MolocoBannerType : Swift.Hashable {}
+@available(iOS 13.0, *)
+extension MolocoSDK.MolocoBannerType : Swift.RawRepresentable {}
+extension MolocoSDK.MolocoError : Swift.Equatable {}
+extension MolocoSDK.MolocoError : Swift.Hashable {}
+extension MolocoSDK.MolocoError : Swift.RawRepresentable {}
+extension MolocoSDK.MolocoMediationInfo : Swift.Equatable {}
+extension MolocoSDK.MolocoMediationInfo : Swift.Hashable {}
+extension MolocoSDK.MolocoMediationInfo : Swift.RawRepresentable {}
+extension MolocoSDK.Moloco.MolocoAdType : Swift.Equatable {}
+extension MolocoSDK.Moloco.MolocoAdType : Swift.Hashable {}

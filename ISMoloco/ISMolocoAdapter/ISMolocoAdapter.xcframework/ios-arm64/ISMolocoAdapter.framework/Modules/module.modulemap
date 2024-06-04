@@ -1,0 +1,6 @@
+framework module ISMolocoAdapter {
+  umbrella header "ISMolocoAdapter.h"
+  export *
+
+  module * { export * }
+}

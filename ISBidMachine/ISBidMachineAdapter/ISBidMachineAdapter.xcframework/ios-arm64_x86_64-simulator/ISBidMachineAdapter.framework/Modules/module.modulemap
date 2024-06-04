@@ -1,0 +1,6 @@
+framework module ISBidMachineAdapter {
+  umbrella header "ISBidMachineAdapter.h"
+  export *
+
+  module * { export * }
+}

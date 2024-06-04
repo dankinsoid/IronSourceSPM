@@ -1,0 +1,11 @@
+framework module HyprMX {
+  umbrella header "HyprMX.h"
+
+  export *
+  module * { export * }
+}
+
+module HyprMX.Swift {
+  header "HyprMX-Swift.h"
+  requires objc
+}

@@ -1,0 +1,21 @@
+@_exported import ISSmaatoAdapter
+@_exported import SmaatoSDKRewardedAds
+@_exported import SmaatoSDKInterstitial
+@_exported import SmaatoSDKFacebookCSMBannerAdapter
+@_exported import SmaatoSDKFacebookCSMRewardedVideoAdapter
+@_exported import SmaatoSDKAdMobCSMInterstitialAdapter
+@_exported import SmaatoSDKCore
+@_exported import SmaatoSDKNative
+@_exported import SmaatoSDKCMP
+@_exported import SmaatoSDKUnifiedBidding
+@_exported import SmaatoSDKRichMedia
+@_exported import SmaatoSDKVideo
+@_exported import SmaatoSDKOpenMeasurement
+@_exported import SmaatoSDKAdMobCSMRewardedVideoAdapter
+@_exported import SmaatoSDKInAppBidding
+@_exported import SmaatoSDKBanner
+@_exported import SmaatoSDKFacebookCSMInterstitialAdapter
+@_exported import SmaatoSDKAdMobCSMBannerAdapter
+@_exported import SmaatoSDKOutstream
+@_exported import OMSDK_Smaato
+

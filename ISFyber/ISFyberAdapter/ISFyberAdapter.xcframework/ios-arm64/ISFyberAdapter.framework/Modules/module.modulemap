@@ -1,0 +1,6 @@
+framework module ISFyberAdapter {
+  umbrella header "ISFyberAdapter.h"
+  export *
+
+  module * { export * }
+}

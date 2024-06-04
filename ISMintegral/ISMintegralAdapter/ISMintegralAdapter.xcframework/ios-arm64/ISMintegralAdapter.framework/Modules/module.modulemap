@@ -1,0 +1,6 @@
+framework module ISMintegralAdapter {
+  umbrella header "ISMintegralAdapter.h"
+  export *
+
+  module * { export * }
+}

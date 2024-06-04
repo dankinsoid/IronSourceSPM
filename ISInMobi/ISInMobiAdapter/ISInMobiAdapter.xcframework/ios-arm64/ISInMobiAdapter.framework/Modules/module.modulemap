@@ -1,0 +1,6 @@
+framework module ISInMobiAdapter {
+  umbrella header "ISInMobiAdapter.h"
+  export *
+
+  module * { export * }
+}

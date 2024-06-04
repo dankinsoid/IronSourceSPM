@@ -1,0 +1,6 @@
+framework module ISMaioAdapter {
+  umbrella header "ISMaioAdapter.h"
+
+  export *
+  module * { export * }
+}

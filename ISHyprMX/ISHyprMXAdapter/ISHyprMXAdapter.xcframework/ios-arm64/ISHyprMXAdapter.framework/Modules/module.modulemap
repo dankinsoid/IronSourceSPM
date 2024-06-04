@@ -1,0 +1,6 @@
+framework module ISHyprMXAdapter {
+  umbrella header "ISHyprMXAdapter.h"
+  export *
+
+  module * { export * }
+}
