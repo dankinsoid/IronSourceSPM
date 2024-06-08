@@ -10,410 +10,301 @@ let package = Package(
         .iOS(.v11)
     ],
     products: [
-        .library(name: "ISMaio", targets: ["ISMaio"]),
-        .library(name: "ISChartboost", targets: ["ISChartboost"]),
-        .library(name: "ISYandex", targets: ["ISYandex"]),
-        .library(name: "ISMintegral", targets: ["ISMintegral"]),
-        .library(name: "ISHyprMX", targets: ["ISHyprMX"]),
-        .library(name: "ISUnityAds", targets: ["ISUnityAds"]),
-        .library(name: "ISSuperAwesome", targets: ["ISSuperAwesome"]),
-        .library(name: "ISAdMob", targets: ["ISAdMob"]),
-        .library(name: "ISAPS", targets: ["ISAPS"]),
-        .library(name: "ISSmaato", targets: ["ISSmaato"]),
-        .library(name: "ISVungle", targets: ["ISVungle"]),
-        .library(name: "ISInMobi", targets: ["ISInMobi"]),
-        .library(name: "ISBidMachine", targets: ["ISBidMachine"]),
-        .library(name: "ISFacebook", targets: ["ISFacebook"]),
-        .library(name: "ISFyber", targets: ["ISFyber"]),
-        .library(name: "ISPangle", targets: ["ISPangle"]),
-        .library(name: "ISMoloco", targets: ["ISMoloco"]),
+        .library(name: "MaioSDK", targets: ["MaioSDK"]),
+        .library(name: "ISMaioAdapter", targets: ["ISMaioAdapter"]),
+        .library(name: "AppLovinSDK", targets: ["AppLovinSDK"]),
+        .library(name: "ISAppLovinAdapter", targets: ["ISAppLovinAdapter"]),
+        .library(name: "ChartboostSDK", targets: ["ChartboostSDK"]),
+        .library(name: "ISChartboostAdapter", targets: ["ISChartboostAdapter"]),
+        .library(name: "ISYandexAdapter", targets: ["ISYandexAdapter"]),
+        .library(name: "ISMyTargetAdapter", targets: ["ISMyTargetAdapter"]),
+        .library(name: "MintegralSDK", targets: ["MintegralSDK"]),
+        .library(name: "ISMintegralAdapter", targets: ["ISMintegralAdapter"]),
+        .library(name: "ISHyprMXAdapter", targets: ["ISHyprMXAdapter"]),
+        .library(name: "HyprMXSDK", targets: ["HyprMXSDK"]),
+        .library(name: "UnityAdsSDK", targets: ["UnityAdsSDK"]),
+        .library(name: "ISUnityAdsAdapter", targets: ["ISUnityAdsAdapter"]),
+        .library(name: "SuperAwesomeSDK", targets: ["SuperAwesomeSDK"]),
+        .library(name: "ISSuperAwesomeAdapter", targets: ["ISSuperAwesomeAdapter"]),
+        .library(name: "ISAdMobAdapter", targets: ["ISAdMobAdapter"]),
+        .library(name: "AdMobSDK", targets: ["AdMobSDK"]),
+        .library(name: "ISAPSAdapter", targets: ["ISAPSAdapter"]),
+        .library(name: "APSSDK", targets: ["APSSDK"]),
+        .library(name: "VungleSDK", targets: ["VungleSDK"]),
+        .library(name: "ISVungleAdapter", targets: ["ISVungleAdapter"]),
+        .library(name: "ISInMobiAdapter", targets: ["ISInMobiAdapter"]),
+        .library(name: "InMobiSDK", targets: ["InMobiSDK"]),
+        .library(name: "BidMachineSDK", targets: ["BidMachineSDK"]),
+        .library(name: "ISBidMachineAdapter", targets: ["ISBidMachineAdapter"]),
+        .library(name: "FacebookSDK", targets: ["FacebookSDK"]),
+        .library(name: "ISFacebookAdapter", targets: ["ISFacebookAdapter"]),
+        .library(name: "ISFyberAdapter", targets: ["ISFyberAdapter"]),
+        .library(name: "FyberSDK", targets: ["FyberSDK"]),
+        .library(name: "ISMolocoAdapter", targets: ["ISMolocoAdapter"]),
+        .library(name: "MolocoSDK", targets: ["MolocoSDK"]),
         .library(name: "IronSource", targets: ["IronSource", "IronSourceAdQualitySDK"]),
     ],
-    dependencies: [],
+
+    dependencies: [
+        .package(url: "https://github.com/yandexmobile/yandex-ads-sdk-ios.git", from: "7.0.0"),
+        .package(url: "https://github.com/myTargetSDK/mytarget-ios-spm.git", from: "5.0.0"),
+        .package(path: "./ISMaio/MaioSDK"),
+        .package(path: "./ISMaio/ISMaioAdapter"),
+        .package(path: "./ISAppLovin/AppLovinSDK"),
+        .package(path: "./ISAppLovin/ISAppLovinAdapter"),
+        .package(path: "./ISChartboost/ChartboostSDK"),
+        .package(path: "./ISChartboost/ISChartboostAdapter"),
+        .package(path: "./ISYandex/ISYandexAdapter"),
+        .package(path: "./ISMyTarget/ISMyTargetAdapter"),
+        .package(path: "./ISMintegral/MintegralSDK"),
+        .package(path: "./ISMintegral/ISMintegralAdapter"),
+        .package(path: "./ISHyprMX/ISHyprMXAdapter"),
+        .package(path: "./ISHyprMX/HyprMXSDK"),
+        .package(path: "./ISUnityAds/UnityAdsSDK"),
+        .package(path: "./ISUnityAds/ISUnityAdsAdapter"),
+        .package(path: "./ISSuperAwesome/SuperAwesomeSDK"),
+        .package(path: "./ISSuperAwesome/ISSuperAwesomeAdapter"),
+        .package(path: "./ISAdMob/ISAdMobAdapter"),
+        .package(path: "./ISAdMob/AdMobSDK"),
+        .package(path: "./ISAPS/ISAPSAdapter"),
+        .package(path: "./ISAPS/APSSDK"),
+        .package(path: "./ISVungle/VungleSDK"),
+        .package(path: "./ISVungle/ISVungleAdapter"),
+        .package(path: "./ISInMobi/ISInMobiAdapter"),
+        .package(path: "./ISInMobi/InMobiSDK"),
+        .package(path: "./ISBidMachine/BidMachineSDK"),
+        .package(path: "./ISBidMachine/ISBidMachineAdapter"),
+        .package(path: "./ISFacebook/FacebookSDK"),
+        .package(path: "./ISFacebook/ISFacebookAdapter"),
+        .package(path: "./ISFyber/ISFyberAdapter"),
+        .package(path: "./ISFyber/FyberSDK"),
+        .package(path: "./ISMoloco/ISMolocoAdapter"),
+        .package(path: "./ISMoloco/MolocoSDK"),
+    ],
     targets: [
-        .binaryTarget(
-            name: "Maio",
-            path: "./ISMaio/MaioSDK/Maio.xcframework"
+        .target(
+            name: "MaioSDK",
+            dependencies: [
+                "MaioSDK"
+            ],
+            path: "./ISMaio/MaioSDK"
         ),
-        .binaryTarget(
+        .target(
             name: "ISMaioAdapter",
-            path: "./ISMaio/ISMaioAdapter/ISMaioAdapter.xcframework"
+            dependencies: [
+                "ISMaioAdapter"
+            ],
+            path: "./ISMaio/ISMaioAdapter"
         ),
         .target(
-            name: "ISMaio",
+            name: "AppLovinSDK",
             dependencies: [
-                "Maio","ISMaioAdapter"
+                "AppLovinSDK"
             ],
-            path: "./ISMaio",
-            resources: []
+            path: "./ISAppLovin/AppLovinSDK"
         ),
-        .binaryTarget(
+        .target(
+            name: "ISAppLovinAdapter",
+            dependencies: [
+                "ISAppLovinAdapter"
+            ],
+            path: "./ISAppLovin/ISAppLovinAdapter"
+        ),
+        .target(
             name: "ChartboostSDK",
-            path: "./ISChartboost/ChartboostSDK/ChartboostSDK.xcframework"
+            dependencies: [
+                "ChartboostSDK"
+            ],
+            path: "./ISChartboost/ChartboostSDK"
         ),
-        .binaryTarget(
+        .target(
             name: "ISChartboostAdapter",
-            path: "./ISChartboost/ISChartboostAdapter/ISChartboostAdapter.xcframework"
+            dependencies: [
+                "ISChartboostAdapter"
+            ],
+            path: "./ISChartboost/ISChartboostAdapter"
         ),
         .target(
-            name: "ISChartboost",
-            dependencies: [
-                "ChartboostSDK","ISChartboostAdapter"
-            ],
-            path: "./ISChartboost",
-            resources: []
-        ),
-        .binaryTarget(
-            name: "YandexMobileAds",
-            path: "./ISYandex/YandexSDK/static/YandexMobileAds.xcframework"
-        ),
-        .binaryTarget(
             name: "ISYandexAdapter",
-            path: "./ISYandex/ISYandexAdapter/ISYandexAdapter.xcframework"
+            dependencies: [
+                "ISYandexAdapter"
+            ],
+            path: "./ISYandex/ISYandexAdapter"
         ),
         .target(
-            name: "ISYandex",
+            name: "ISMyTargetAdapter",
             dependencies: [
-                "YandexMobileAds","ISYandexAdapter"
+                "ISMyTargetAdapter"
             ],
-            path: "./ISYandex",
-            resources: [.copy("YandexSDK/PrivacyInfo.xcprivacy")]
+            path: "./ISMyTarget/ISMyTargetAdapter"
         ),
-        .binaryTarget(
-            name: "MTGSDKInterstitialVideo",
-            path: "./ISMintegral/MintegralSDK/MTGSDKInterstitialVideo.xcframework"
+        .target(
+            name: "MintegralSDK",
+            dependencies: [
+                "MintegralSDK"
+            ],
+            path: "./ISMintegral/MintegralSDK"
         ),
-        .binaryTarget(
-            name: "MTGSDKBanner",
-            path: "./ISMintegral/MintegralSDK/MTGSDKBanner.xcframework"
-        ),
-        .binaryTarget(
-            name: "MTGSDKBidding",
-            path: "./ISMintegral/MintegralSDK/MTGSDKBidding.xcframework"
-        ),
-        .binaryTarget(
-            name: "MTGSDKReward",
-            path: "./ISMintegral/MintegralSDK/MTGSDKReward.xcframework"
-        ),
-        .binaryTarget(
-            name: "MTGSDKNativeAdvanced",
-            path: "./ISMintegral/MintegralSDK/MTGSDKNativeAdvanced.xcframework"
-        ),
-        .binaryTarget(
-            name: "MTGSDKSplash",
-            path: "./ISMintegral/MintegralSDK/MTGSDKSplash.xcframework"
-        ),
-        .binaryTarget(
-            name: "MTGSDKNewInterstitial",
-            path: "./ISMintegral/MintegralSDK/MTGSDKNewInterstitial.xcframework"
-        ),
-        .binaryTarget(
-            name: "MTGSDK",
-            path: "./ISMintegral/MintegralSDK/MTGSDK.xcframework"
-        ),
-        .binaryTarget(
+        .target(
             name: "ISMintegralAdapter",
-            path: "./ISMintegral/ISMintegralAdapter/ISMintegralAdapter.xcframework"
+            dependencies: [
+                "ISMintegralAdapter"
+            ],
+            path: "./ISMintegral/ISMintegralAdapter"
         ),
         .target(
-            name: "ISMintegral",
-            dependencies: [
-                "MTGSDKInterstitialVideo","MTGSDKBanner","MTGSDKBidding","MTGSDKReward","MTGSDKNativeAdvanced","MTGSDKSplash","MTGSDKNewInterstitial","MTGSDK","ISMintegralAdapter"
-            ],
-            path: "./ISMintegral",
-            resources: []
-        ),
-        .binaryTarget(
             name: "ISHyprMXAdapter",
-            path: "./ISHyprMX/ISHyprMXAdapter/ISHyprMXAdapter.xcframework"
-        ),
-        .binaryTarget(
-            name: "HyprMX",
-            path: "./ISHyprMX/HyprMXSDK/HyprMX.xcframework"
+            dependencies: [
+                "ISHyprMXAdapter"
+            ],
+            path: "./ISHyprMX/ISHyprMXAdapter"
         ),
         .target(
-            name: "ISHyprMX",
+            name: "HyprMXSDK",
             dependencies: [
-                "ISHyprMXAdapter","HyprMX"
+                "HyprMXSDK"
             ],
-            path: "./ISHyprMX",
-            resources: []
+            path: "./ISHyprMX/HyprMXSDK"
         ),
-        .binaryTarget(
-            name: "UnityAds",
-            path: "./ISUnityAds/UnityAdsSDK/UnityAds.xcframework"
+        .target(
+            name: "UnityAdsSDK",
+            dependencies: [
+                "UnityAdsSDK"
+            ],
+            path: "./ISUnityAds/UnityAdsSDK"
         ),
-        .binaryTarget(
+        .target(
             name: "ISUnityAdsAdapter",
-            path: "./ISUnityAds/ISUnityAdsAdapter/ISUnityAdsAdapter.xcframework"
-        ),
-        .target(
-            name: "ISUnityAds",
             dependencies: [
-                "UnityAds","ISUnityAdsAdapter"
+                "ISUnityAdsAdapter"
             ],
-            path: "./ISUnityAds",
-            resources: []
-        ),
-        .binaryTarget(
-            name: "ISSuperAwesomeAdapter",
-            path: "./ISSuperAwesome/ISSuperAwesomeAdapter/ISSuperAwesomeAdapter.xcframework"
+            path: "./ISUnityAds/ISUnityAdsAdapter"
         ),
         .target(
-            name: "ISSuperAwesome",
+            name: "SuperAwesomeSDK",
+            dependencies: [
+                "SuperAwesomeSDK"
+            ],
+            path: "./ISSuperAwesome/SuperAwesomeSDK"
+        ),
+        .target(
+            name: "ISSuperAwesomeAdapter",
             dependencies: [
                 "ISSuperAwesomeAdapter"
             ],
-            path: "./ISSuperAwesome",
-            resources: [.copy("SuperAwesomeSDK/PrivacyInfo.xcprivacy")]
+            path: "./ISSuperAwesome/ISSuperAwesomeAdapter"
         ),
-        .binaryTarget(
+        .target(
             name: "ISAdMobAdapter",
-            path: "./ISAdMob/ISAdMobAdapter/ISAdMobAdapter.xcframework"
-        ),
-        .binaryTarget(
-            name: "UserMessagingPlatform",
-            path: "./ISAdMob/AdMobSDK/UserMessagingPlatform.xcframework"
-        ),
-        .binaryTarget(
-            name: "GoogleMobileAds",
-            path: "./ISAdMob/AdMobSDK/GoogleMobileAds.xcframework"
+            dependencies: [
+                "ISAdMobAdapter"
+            ],
+            path: "./ISAdMob/ISAdMobAdapter"
         ),
         .target(
-            name: "ISAdMob",
+            name: "AdMobSDK",
             dependencies: [
-                "ISAdMobAdapter","UserMessagingPlatform","GoogleMobileAds"
+                "AdMobSDK"
             ],
-            path: "./ISAdMob",
-            resources: []
+            path: "./ISAdMob/AdMobSDK"
         ),
-        .binaryTarget(
+        .target(
             name: "ISAPSAdapter",
-            path: "./ISAPS/ISAPSAdapter/ISAPSAdapter.xcframework"
-        ),
-        .binaryTarget(
-            name: "APSAdMobAdapter",
-            path: "./ISAPS/APSSDK/APSAdMobAdapter.xcframework"
-        ),
-        .binaryTarget(
-            name: "DTBiOSSDK",
-            path: "./ISAPS/APSSDK/DTBiOSSDK.xcframework"
+            dependencies: [
+                "ISAPSAdapter"
+            ],
+            path: "./ISAPS/ISAPSAdapter"
         ),
         .target(
-            name: "ISAPS",
+            name: "APSSDK",
             dependencies: [
-                "ISAPSAdapter","APSAdMobAdapter","DTBiOSSDK"
+                "APSSDK"
             ],
-            path: "./ISAPS",
-            resources: []
-        ),
-        .binaryTarget(
-            name: "ISSmaatoAdapter",
-            path: "./ISSmaato/ISSmaatoAdapter/ISSmaatoAdapter.xcframework"
-        ),
-        .binaryTarget(
-            name: "SmaatoSDKRewardedAds",
-            path: "./ISSmaato/SmaatoSDK/SmaatoSDKRewardedAds.xcframework"
-        ),
-        .binaryTarget(
-            name: "SmaatoSDKInterstitial",
-            path: "./ISSmaato/SmaatoSDK/SmaatoSDKInterstitial.xcframework"
-        ),
-        .binaryTarget(
-            name: "SmaatoSDKFacebookCSMBannerAdapter",
-            path: "./ISSmaato/SmaatoSDK/SmaatoSDKFacebookCSMBannerAdapter.xcframework"
-        ),
-        .binaryTarget(
-            name: "SmaatoSDKFacebookCSMRewardedVideoAdapter",
-            path: "./ISSmaato/SmaatoSDK/SmaatoSDKFacebookCSMRewardedVideoAdapter.xcframework"
-        ),
-        .binaryTarget(
-            name: "SmaatoSDKAdMobCSMInterstitialAdapter",
-            path: "./ISSmaato/SmaatoSDK/SmaatoSDKAdMobCSMInterstitialAdapter.xcframework"
-        ),
-        .binaryTarget(
-            name: "SmaatoSDKCore",
-            path: "./ISSmaato/SmaatoSDK/SmaatoSDKCore.xcframework"
-        ),
-        .binaryTarget(
-            name: "SmaatoSDKNative",
-            path: "./ISSmaato/SmaatoSDK/SmaatoSDKNative.xcframework"
-        ),
-        .binaryTarget(
-            name: "SmaatoSDKCMP",
-            path: "./ISSmaato/SmaatoSDK/SmaatoSDKCMP.xcframework"
-        ),
-        .binaryTarget(
-            name: "SmaatoSDKUnifiedBidding",
-            path: "./ISSmaato/SmaatoSDK/SmaatoSDKUnifiedBidding.xcframework"
-        ),
-        .binaryTarget(
-            name: "SmaatoSDKRichMedia",
-            path: "./ISSmaato/SmaatoSDK/SmaatoSDKRichMedia.xcframework"
-        ),
-        .binaryTarget(
-            name: "SmaatoSDKVideo",
-            path: "./ISSmaato/SmaatoSDK/SmaatoSDKVideo.xcframework"
-        ),
-        .binaryTarget(
-            name: "SmaatoSDKOpenMeasurement",
-            path: "./ISSmaato/SmaatoSDK/SmaatoSDKOpenMeasurement.xcframework"
-        ),
-        .binaryTarget(
-            name: "SmaatoSDKAdMobCSMRewardedVideoAdapter",
-            path: "./ISSmaato/SmaatoSDK/SmaatoSDKAdMobCSMRewardedVideoAdapter.xcframework"
-        ),
-        .binaryTarget(
-            name: "SmaatoSDKInAppBidding",
-            path: "./ISSmaato/SmaatoSDK/SmaatoSDKInAppBidding.xcframework"
-        ),
-        .binaryTarget(
-            name: "SmaatoSDKBanner",
-            path: "./ISSmaato/SmaatoSDK/SmaatoSDKBanner.xcframework"
-        ),
-        .binaryTarget(
-            name: "SmaatoSDKFacebookCSMInterstitialAdapter",
-            path: "./ISSmaato/SmaatoSDK/SmaatoSDKFacebookCSMInterstitialAdapter.xcframework"
-        ),
-        .binaryTarget(
-            name: "SmaatoSDKAdMobCSMBannerAdapter",
-            path: "./ISSmaato/SmaatoSDK/SmaatoSDKAdMobCSMBannerAdapter.xcframework"
-        ),
-        .binaryTarget(
-            name: "SmaatoSDKOutstream",
-            path: "./ISSmaato/SmaatoSDK/SmaatoSDKOutstream.xcframework"
-        ),
-        .binaryTarget(
-            name: "OMSDK_Smaato",
-            path: "./ISSmaato/SmaatoSDK/vendor/OMSDK_Smaato.xcframework"
+            path: "./ISAPS/APSSDK"
         ),
         .target(
-            name: "ISSmaato",
+            name: "VungleSDK",
             dependencies: [
-                "ISSmaatoAdapter","SmaatoSDKRewardedAds","SmaatoSDKInterstitial","SmaatoSDKFacebookCSMBannerAdapter","SmaatoSDKFacebookCSMRewardedVideoAdapter","SmaatoSDKAdMobCSMInterstitialAdapter","SmaatoSDKCore","SmaatoSDKNative","SmaatoSDKCMP","SmaatoSDKUnifiedBidding","SmaatoSDKRichMedia","SmaatoSDKVideo","SmaatoSDKOpenMeasurement","SmaatoSDKAdMobCSMRewardedVideoAdapter","SmaatoSDKInAppBidding","SmaatoSDKBanner","SmaatoSDKFacebookCSMInterstitialAdapter","SmaatoSDKAdMobCSMBannerAdapter","SmaatoSDKOutstream","OMSDK_Smaato"
+                "VungleSDK"
             ],
-            path: "./ISSmaato",
-            resources: [.copy("SmaatoSDK/PrivacyInfo.xcprivacy")]
+            path: "./ISVungle/VungleSDK"
         ),
-        .binaryTarget(
-            name: "VungleAdsSDK",
-            path: "./ISVungle/VungleSDK/dynamic/VungleAdsSDK.xcframework"
-        ),
-        .binaryTarget(
+        .target(
             name: "ISVungleAdapter",
-            path: "./ISVungle/ISVungleAdapter/ISVungleAdapter.xcframework"
+            dependencies: [
+                "ISVungleAdapter"
+            ],
+            path: "./ISVungle/ISVungleAdapter"
         ),
         .target(
-            name: "ISVungle",
-            dependencies: [
-                "VungleAdsSDK","ISVungleAdapter"
-            ],
-            path: "./ISVungle",
-            resources: []
-        ),
-        .binaryTarget(
             name: "ISInMobiAdapter",
-            path: "./ISInMobi/ISInMobiAdapter/ISInMobiAdapter.xcframework"
+            dependencies: [
+                "ISInMobiAdapter"
+            ],
+            path: "./ISInMobi/ISInMobiAdapter"
         ),
-        .binaryTarget(
+        .target(
             name: "InMobiSDK",
-            path: "./ISInMobi/InMobiSDK/InMobiSDK.xcframework"
+            dependencies: [
+                "InMobiSDK"
+            ],
+            path: "./ISInMobi/InMobiSDK"
         ),
         .target(
-            name: "ISInMobi",
+            name: "BidMachineSDK",
             dependencies: [
-                "ISInMobiAdapter","InMobiSDK"
+                "BidMachineSDK"
             ],
-            path: "./ISInMobi",
-            resources: []
+            path: "./ISBidMachine/BidMachineSDK"
         ),
-        .binaryTarget(
-            name: "BidMachine",
-            path: "./ISBidMachine/BidMachineSDK/BidMachine.xcframework"
-        ),
-        .binaryTarget(
+        .target(
             name: "ISBidMachineAdapter",
-            path: "./ISBidMachine/ISBidMachineAdapter/ISBidMachineAdapter.xcframework"
+            dependencies: [
+                "ISBidMachineAdapter"
+            ],
+            path: "./ISBidMachine/ISBidMachineAdapter"
         ),
         .target(
-            name: "ISBidMachine",
+            name: "FacebookSDK",
             dependencies: [
-                "BidMachine","ISBidMachineAdapter"
+                "FacebookSDK"
             ],
-            path: "./ISBidMachine",
-            resources: []
+            path: "./ISFacebook/FacebookSDK"
         ),
-        .binaryTarget(
-            name: "FBAudienceNetwork",
-            path: "./ISFacebook/FacebookSDK/Dynamic/FBAudienceNetwork.xcframework"
-        ),
-        .binaryTarget(
+        .target(
             name: "ISFacebookAdapter",
-            path: "./ISFacebook/ISFacebookAdapter/ISFacebookAdapter.xcframework"
+            dependencies: [
+                "ISFacebookAdapter"
+            ],
+            path: "./ISFacebook/ISFacebookAdapter"
         ),
         .target(
-            name: "ISFacebook",
-            dependencies: [
-                "FBAudienceNetwork","ISFacebookAdapter"
-            ],
-            path: "./ISFacebook",
-            resources: []
-        ),
-        .binaryTarget(
             name: "ISFyberAdapter",
-            path: "./ISFyber/ISFyberAdapter/ISFyberAdapter.xcframework"
-        ),
-        .binaryTarget(
-            name: "IASDKCore",
-            path: "./ISFyber/FyberSDK/IASDKCore/IASDKCore.xcframework"
+            dependencies: [
+                "ISFyberAdapter"
+            ],
+            path: "./ISFyber/ISFyberAdapter"
         ),
         .target(
-            name: "ISFyber",
+            name: "FyberSDK",
             dependencies: [
-                "ISFyberAdapter","IASDKCore"
+                "FyberSDK"
             ],
-            path: "./ISFyber",
-            resources: [.copy("FyberSDK/DTExchangeTestAppPUB/PrivacyInfo.xcprivacy")]
-        ),
-        .binaryTarget(
-            name: "BURelyFoundation_Global",
-            path: "./ISPangle/PangleSDK/SDK/BURelyFoundation_Global.xcframework"
-        ),
-        .binaryTarget(
-            name: "PAGAdSDK",
-            path: "./ISPangle/PangleSDK/SDK/PAGAdSDK.xcframework"
-        ),
-        .binaryTarget(
-            name: "BURelyAdSDK",
-            path: "./ISPangle/PangleSDK/SDK/BURelyAdSDK.xcframework"
-        ),
-        .binaryTarget(
-            name: "ISPangleAdapter",
-            path: "./ISPangle/ISPangleAdapter/ISPangleAdapter.xcframework"
+            path: "./ISFyber/FyberSDK"
         ),
         .target(
-            name: "ISPangle",
-            dependencies: [
-                "BURelyFoundation_Global","PAGAdSDK","BURelyAdSDK","ISPangleAdapter"
-            ],
-            path: "./ISPangle",
-            resources: [.copy("PangleSDK/SDK/PAGAdSDK.bundle/PrivacyInfo.xcprivacy")]
-        ),
-        .binaryTarget(
             name: "ISMolocoAdapter",
-            path: "./ISMoloco/ISMolocoAdapter/ISMolocoAdapter.xcframework"
-        ),
-        .binaryTarget(
-            name: "MolocoSDK",
-            path: "./ISMoloco/MolocoSDK/MolocoSDK.xcframework"
+            dependencies: [
+                "ISMolocoAdapter"
+            ],
+            path: "./ISMoloco/ISMolocoAdapter"
         ),
         .target(
-            name: "ISMoloco",
+            name: "MolocoSDK",
             dependencies: [
-                "ISMolocoAdapter","MolocoSDK"
+                "MolocoSDK"
             ],
-            path: "./ISMoloco",
-            resources: []
+            path: "./ISMoloco/MolocoSDK"
         ),
         .binaryTarget(
             name: "IronSource",
